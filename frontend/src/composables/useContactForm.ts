@@ -2,6 +2,8 @@ import { reactive, ref } from "vue";
 import type { ContactForm, ContactFormErrors } from "@/types/contact";
 import { CONTACT_SESSION_KEY } from "@/constants/constants";
 
+const serverError = ref<string>('');
+
 export const useContactForm = () => {
   // 問い合わせフォーム
   const contactForm = reactive<ContactForm>({
@@ -16,8 +18,6 @@ export const useContactForm = () => {
     email: [],
     content: []
   });
-
-  const serverError = ref<string>('');
 
   // 問い合わせフォーム初期化
   // セッションストレージに値があれば使用する

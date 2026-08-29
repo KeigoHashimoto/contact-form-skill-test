@@ -9,7 +9,7 @@ import { contactFormValidate } from '@/validate/contactFormValidate';
 const router = useRouter();
 
 // 状態管理
-const { contactForm, contactFormErrors, initializeContactForm } = useContactForm();
+const { contactForm, contactFormErrors, serverError, initializeContactForm } = useContactForm();
 
 // 確認ボタン押下
 const confirmBtnClick = () => {
@@ -71,6 +71,7 @@ onMounted(() => {
           確認
         </button>
       </div>
+      <span class="error" v-if="serverError">{{ serverError }}</span>
     </div>
   </div>
   
