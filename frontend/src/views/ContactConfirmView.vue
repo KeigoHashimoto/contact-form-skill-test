@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router';
 import { onMounted } from 'vue';
 import { contactFormValidate } from '@/validate/contactFormValidate';
 import { sendContactForm } from '@/services/contactApi';
+import { CONTACT_SESSION_KEY } from '@/constants/constants';
 
 // ルーター
 const router = useRouter();
@@ -27,12 +28,12 @@ const submitBtnClick = async () => {
     contactForm.name = '';
     contactForm.email = '';
     contactForm.content = '';
-    sessionStorage.clear();
+    sessionStorage.removeItem(CONTACT_SESSION_KEY)
 
     // 完了画面に遷移
     router.push('/complete');
   } catch (e) {
-    console.log(e)
+    router.push('/');
   } 
 }
 
@@ -71,7 +72,6 @@ onMounted(() => {
           戻る
         </button>
       </div>
-      <span class="error" v-if="serverError">{{ serverError }}</span>
     </div>
   </div>
 </template>

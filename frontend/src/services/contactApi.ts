@@ -2,6 +2,7 @@ import { errorMessages, serverErrorMessages } from '@/constants/messages';
 import type { ContactForm } from '@/types/contact'
 
 export const sendContactForm = async (form: ContactForm, serverError: string): Promise<void> => {
+  serverError.value = '';
   const response = await fetch('/api/contact.php', {
     method: 'POST',
     headers: {
