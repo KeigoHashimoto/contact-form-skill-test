@@ -1,0 +1,1 @@
+export const CONTACT_SESSION_KEY: string = 'CONTACT';
