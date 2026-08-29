@@ -8,6 +8,9 @@ node_modules/
 # Vue / Vite build
 dist/
 
+# composer
+backend/vendor/
+
 # Environment variables
 .env
 .env.local
