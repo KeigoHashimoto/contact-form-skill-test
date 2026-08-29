@@ -30,10 +30,15 @@ const submitBtnClick = async () => {
     sessionStorage.clear();
 
     // 完了画面に遷移
-    router.push('/complete')
+    router.push('/complete');
   } catch (e) {
     console.log(e)
   } 
+}
+
+const backBtnClick = () => {
+  // 入力画面に遷移
+  router.push('/');
 }
 
 onMounted(() => {
@@ -42,28 +47,42 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1>スキルテスト - 確認画面</h1>
-  <div>
+  <div class="container">
+    <h1>スキルテスト - 確認画面</h1>
     <div>
-      <label for="name">氏名: </label><br>
-      <span>{{ contactForm.name }}</span>
-    </div>
-    <div>
-      <label for="email">メールアドレス: </label><br>
-      <span>{{ contactForm.email }}</span>
-    </div>
-    <div>
-      <label for="content">お問い合わせ内容: </label><br>
-      <span>{{ contactForm.content }}</span>
-    </div>
-    <div>
-      <button @click="submitBtnClick">
-        送信
-      </button>
+      <div class="form-block">
+        <label for="name">氏名: </label><br>
+        <span class="confirm-content">{{ contactForm.name }}</span>
+      </div>
+      <div class="form-block">
+        <label for="email">メールアドレス: </label><br>
+        <span class="confirm-content">{{ contactForm.email }}</span>
+      </div>
+      <div class="form-block">
+        <label for="content">お問い合わせ内容: </label><br>
+        <span class="confirm-content">{{ contactForm.content }}</span>
+      </div>
+      <div>
+        <button @click="submitBtnClick" class="submit-btn">
+          送信
+        </button>
+
+        <button @click="backBtnClick" class="back-btn">
+          戻る
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.back-btn {
+  margin-left: 12px;
+}
 
+.confirm-content {
+  padding: 4px 6px;
+  background: #eee;
+  border-radius: 5px;
+}
 </style>

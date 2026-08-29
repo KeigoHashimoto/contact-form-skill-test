@@ -30,44 +30,50 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1>スキルテスト - 入力画面</h1>
-  <div>
+  <div class="container">
+    <h1>スキルテスト - 入力画面</h1>
     <div>
-      <label for="name">氏名: </label><br>
-      <input type="text" name="name" id="name" v-model="contactForm.name">
-      <p 
-        v-if="contactFormErrors.name.length > 0"        
-        v-for="(err, i) in contactFormErrors.name" 
-        :key="i">
-        {{ err }}
-      </p>    
-    </div>
-    <div>
-      <label for="email">メールアドレス: </label><br>
-      <input type="text" name="email" id="email" v-model="contactForm.email">
-      <p 
-        v-if="contactFormErrors.email.length > 0"        
-        v-for="(err, i) in contactFormErrors.email" 
-        :key="i">
-        {{ err }}
-      </p>
-    </div>
-    <div>
-      <label for="content">お問い合わせ内容: </label><br>
-      <textarea name="content" id="content" v-model="contactForm.content"></textarea>
-      <p 
-        v-if="contactFormErrors.content.length > 0" 
-        v-for="(err, i) in contactFormErrors.content" 
-        :key="i">
-        {{ err }}
-      </p>
-    </div>
-    <div>
-      <button @click="confirmBtnClick">
-        確認
-      </button>
+      <div class="form-block">
+        <label for="name">氏名: </label><br>
+        <input type="text" name="name" id="name" v-model="contactForm.name">
+        <p 
+          class="error"
+          v-if="contactFormErrors.name.length > 0"        
+          v-for="(err, i) in contactFormErrors.name" 
+          :key="i">
+          {{ err }}
+        </p>    
+      </div>
+      <div class="form-block">
+        <label for="email">メールアドレス: </label><br>
+        <input type="text" name="email" id="email" v-model="contactForm.email">
+        <p 
+          class="error"
+          v-if="contactFormErrors.email.length > 0"        
+          v-for="(err, i) in contactFormErrors.email" 
+          :key="i">
+          {{ err }}
+        </p>
+      </div>
+      <div class="form-block">
+        <label for="content">お問い合わせ内容: </label><br>
+        <textarea name="content" id="content" v-model="contactForm.content"></textarea>
+        <p 
+          class="error"
+          v-if="contactFormErrors.content.length > 0" 
+          v-for="(err, i) in contactFormErrors.content" 
+          :key="i">
+          {{ err }}
+        </p>
+      </div>
+      <div>
+        <button @click="confirmBtnClick" class="submit-btn">
+          確認
+        </button>
+      </div>
     </div>
   </div>
+  
 </template>
 
 <style scoped>

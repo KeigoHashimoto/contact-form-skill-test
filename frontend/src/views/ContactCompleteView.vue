@@ -3,10 +3,12 @@
 </script>
 
 <template>
-  <h1>スキルテスト - 完了画面</h1>
-  <div>
+  <div class="container">
+    <h1>スキルテスト - 完了画面</h1>
     <div>
-      {{ infoMessages.successContact }}
+      <div>
+        {{ infoMessages.successContact }}
+      </div>
     </div>
   </div>
 </template>
