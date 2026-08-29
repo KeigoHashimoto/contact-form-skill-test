@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+._*
+
+# Node.js
+node_modules/
+
+# Vue / Vite build
+dist/
+
+# Environment variables
+.env
+.env.local
+
+# VSCode
+.vscode/
