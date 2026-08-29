@@ -9,7 +9,7 @@ import { sendContactForm } from '@/services/contactApi';
 const router = useRouter();
 
 // 状態管理
-const { contactForm, contactFormErrors, initializeContactForm } = useContactForm();
+const { contactForm, contactFormErrors, serverError, initializeContactForm } = useContactForm();
 
 // 送信ボタン押下
 const submitBtnClick = async () => {
@@ -21,7 +21,7 @@ const submitBtnClick = async () => {
 
   try {
     // サーバーに送信
-    await sendContactForm(contactForm);
+    await sendContactForm(contactForm, serverError);
 
     // 入力フォームクリア
     contactForm.name = '';
@@ -71,6 +71,7 @@ onMounted(() => {
           戻る
         </button>
       </div>
+      <span class="error" v-if="serverError">{{ serverError }}</span>
     </div>
   </div>
 </template>
