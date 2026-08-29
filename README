@@ -1,0 +1,14 @@
+## セットアップ
+
+### 1. リポジトリをクローン
+git clone https://github.com/KeigoHashimoto/contact-form-skill-test.git
+cd contact-form-skill-test
+
+### 2. フロントエンドの依存関係をインストール
+docker compose run --rm frontend npm install
+
+### 3. バックエンドの依存関係をインストール
+docker compose run --rm composer install
+
+### 4. 開発環境を起動
+docker compose up -d
